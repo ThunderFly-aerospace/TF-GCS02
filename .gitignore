@@ -1,0 +1,6 @@
+build_dist
+workspace/aptcache
+*.img
+*.img*
+build.log
+build_dist
