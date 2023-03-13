@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# start chroot script - Reterminal
+# Install reterminal related tools
+# Written by Roman Dvorak <dvorakroman@thunderfly.cz>
+# GPL V3
+########
+
+
+# Source error handling, leave this in place
+set -x
+set -e
+
+source /common.sh
+install_cleanup_trap
+
+#unpack /filesystem/home/pi /home/"${BASE_USER}" "${BASE_USER}"
+#unpack /filesystem/home/root /root root
+#unpack /filesystem/boot /boot
+
+echo "This is an example module, install and set up what you need here!"
+echo "$RETERMINAL_VAR"
+
+
+apt-get update
+
+apt-get install -y openssh-server mc nano htop arandr git lightdm raspberrypi-ui-mods rpi-chromium-mods
+
+systemctl start ssh
+systemctl enable ssh
+
+systemctl start lightdm
+systemctl enable lightdm
+
+echo "lcd_rotate=2" >> /boot/config.txt
+
+sudo raspi-config nonint do_boot_behaviour B4
+sudo raspi-config nonint do_blanking 0
+
+
+git clone --depth 1 https://github.com/Seeed-Studio/seeed-linux-dtoverlays
+cd seeed-linux-dtoverlays
+sudo ./scripts/reTerminal.sh
+cd ..
+#rm seeed-linux-dtoverlays -r
+
+apt-get purge -y xscreensaver
+
+#unpack /filesystem/root /

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Install mavlink-router
+# 
+# Written by Roman Dvorak <dvorakroman@thunderfly.cz>
+# GPL V3
+########
+
+
+# Source error handling, leave this in place
+set -x
+set -e
+
+source /common.sh
+#install_cleanup_trap
+
+#unpack /filesystem/home/pi /home/"${BASE_USER}" "${BASE_USER}"
+#unpack /filesystem/home/root /root root
+unpack /filesystem/etc /etc
+
+echo "This is an example module, install and set up what you need here!"
+echo "$MAVLINKROUTER_VAR"
+
+apt-get update
+apt-get install -y git meson ninja-build pkg-config gcc g++ systemd python3-pip
+pip3 install meson
+
+#git clone git@github.com:mavlink-router/mavlink-router.git
+git clone https://github.com/mavlink-router/mavlink-router.git
+cd mavlink-router
+git submodule update --init --recursive
+meson setup build .
+ninja -C build
+ninja -C build install
+
+cd ..
+rm mavlink-router/ -r
+
+systemctl enable mavlink-router
+
+# Unpack root at the end, so files are modified before
+#unpack /filesystem/root /

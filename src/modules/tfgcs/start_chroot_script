@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Prepare TF-GCS02 software
+#
+# Written by Roman Dvorak <dvorakroman@thunderfly.cz>
+# GPL V3
+########
+
+set -x
+set -e
+
+source /common.sh
+#install_cleanup_trap
+
+#unpack /filesystem/home/pi /home/"${BASE_USER}" "${BASE_USER}"
+#unpack /filesystem/home/root /root root
+unpack /filesystem/boot /boot
+
+echo "This is an example module, install and set up what you need here!"
+echo "$TFGCS_VAR"
+
+apt-get update
+apt-get -y install fbi
+sed -i 's/$/ logo.nologo consoleblank=0 loglevel=0 quiet/' /boot/cmdline.txt
+echo "disable_splash=1" >> /boot/config.txt
+
+#rm /usr/share/plymouth/themes/pix/splash.png || true
+#cp /boot/splash.png /usr/share/plymouth/themes/pix/splash.png
+#systemctl enable splashscreen.service
+#systemctl disable getty@tty1
+
+#apt-get install -y install git screen nano htop avahi-daemon
+
+apt-get clean
+apt-get autoremove -y
+
+# Unpack root at the end, so files are modified before
+#unpack /filesystem/root /

@@ -1,0 +1,28 @@
+export DIST_NAME=tfgcs
+export DIST_VERSION=0.1.0
+
+# rpi-imager json generator settings
+export RPI_IMAGER_NAME="${DIST_NAME}"
+export RPI_IMAGER_DESCRIPTION="A raspberrypi distro built with CustomPiOS"
+export RPI_IMAGER_WEBSITE="https://github.com/guysoft/CustomPiOS"
+export RPI_IMAGER_ICON="https://raw.githubusercontent.com/guysoft/CustomPiOS/devel/media/rpi-imager-CustomPiOS.png"
+
+export MODULES="base(network,reterminal,tfgcs,mavlink-router)"
+
+
+#export BASE_DISTRO=ubuntu
+#export BASE_ARCH=arm64
+#export BASE_ARCH=armhf
+
+export BASE_ADD_USER=yes
+export BASE_USER=tf
+export BASE_USER_PASSWORD=tf
+
+export BASE_OVERRIDE_HOSTNAME=TFGCS
+
+BASE_SSH_ENABLE=yes
+
+export BASE_IMAGE_ENLARGEROOT=2000
+export BASE_IMAGE_RESIZEROOT=300
+
+#export BASE_RELEASE_IMG_NAME=TFGCSOS-armhf-${DIST_VERSION}.img
