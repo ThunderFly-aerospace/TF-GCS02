@@ -10,5 +10,12 @@ The ground station consists of several parts:
  * Data storage
  * A pair of high-quality telemetry antennas
  * Backup power supply for temporary operation without external power supply.
- * Power-source for power from on-board car voltage
+ * Power source for power from on-board car voltage
  * Compactness
+
+## Basic usage 
+
+Configure [mavlink-router](https://github.com/mavlink-router/mavlink-router) to forward packets to the specific IP address of the UAV operator's terminal by adding another UDP target or editing an existing one. 
+For connection, both WiFi and Ethernet interfaces could be used to ssh connection:
+
+    ssh tf@TF-GCS.lan  
