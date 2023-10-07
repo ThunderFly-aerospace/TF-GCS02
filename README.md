@@ -1,4 +1,4 @@
-# TF-GCS (ThunderFly Ground control station)
+# TF-GCS02 - ThunderFly portable Ground Control Station
 
 An essential accessory of unmanned vehicles is a ground station that ensures a safe and stable connection of the UAV with the software equipment of the UAS operator. The ground station can perform a number of other tasks, such as the control of the automatic [starting platform](https://github.com/ThunderFly-aerospace/TF-SIMPLEPLATFORM) or collecting and processing data in the [TF-ATMON](https://www.thunderfly.cz/tf-atmon/) system.
 
