@@ -2,6 +2,10 @@
 
 An essential accessory of unmanned vehicles is a ground station that ensures a safe and stable connection of the UAV with the software equipment of the UAS operator. The ground station can perform a number of other tasks, such as the control of the automatic [starting platform](https://github.com/ThunderFly-aerospace/TF-SIMPLEPLATFORM) or collecting and processing data in the [TF-ATMON](https://www.thunderfly.cz/tf-atmon/) system.
 
+![TF-GCS02 antenna mount](doc/img/TF-GCS02.jpg)
+
+![TF-GCS02 terminal](doc/img/TF-GCS02_terminal.jpg)
+
 
 The ground station consists of several parts:
  * A computing unit that takes care of logging data from the flight and manages individual software tasks
